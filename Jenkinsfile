@@ -9,39 +9,33 @@ pipeline {
             }
         }
         stage('Build app1') {
+            agent {
+                // Usar Docker para construir la imagen de app1
+                docker { image 'docker:19.03.12' }
+            }
             steps {
                 script {
-                    try {
-                        docker.build('app1', './app1')
-                    } catch (Exception e) {
-                        echo "Error during Build app1: ${e.message}"
-                        throw e
-                    }
+                    // Construir la imagen Docker para app1 usando el Dockerfile en la carpeta app1
+                    docker.build('app1', 'app1')
                 }
             }
         }
         stage('Build app2') {
+            agent {
+                // Usar Docker para construir la imagen de app2
+                docker { image 'docker:19.03.12' }
+            }
             steps {
                 script {
-                    try {
-                        docker.build('app2', './app2')
-                    } catch (Exception e) {
-                        echo "Error during Build app2: ${e.message}"
-                        throw e
-                    }
+                    // Construir la imagen Docker para app2 usando el Dockerfile en la carpeta app2
+                    docker.build('app2', 'app2')
                 }
             }
         }
         stage('Deploy Services') {
             steps {
-                script {
-                    try {
-                        sh 'docker-compose up -d'
-                    } catch (Exception e) {
-                        echo "Error during Deploy Services: ${e.message}"
-                        throw e
-                    }
-                }
+                // Desplegar los servicios usando docker-compose
+                sh 'docker-compose up -d'
             }
         }
     }
