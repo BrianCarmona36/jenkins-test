@@ -3,7 +3,7 @@ const http = require('http');
 const app = express();
 
 app.get('/', (req, res) => {
-  res.send('Hello from app1! Test Jenkins 5!');
+  res.send('Hello from app1! Test Jenkins 6!');
 });
 
 const connectToApp2 = () => {
