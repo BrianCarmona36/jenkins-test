@@ -2,6 +2,12 @@ pipeline {
     agent any
 
     stages {
+        stage('Checkout') {
+            steps {
+                // Obtener el código fuente desde el repositorio configurado en SCM
+                checkout scm
+            }
+        }
         stage('Build app1') {
             steps {
                 script {
