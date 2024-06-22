@@ -28,11 +28,5 @@ pipeline {
                 sh 'docker build -t app2 ./app2'
             }
         }
-        // stage('Deploy Services') {
-        //     steps {
-        //         // Comandos para desplegar servicios
-        //         sh 'docker-compose up -d'
-        //     }
-        // }
     }
 }
