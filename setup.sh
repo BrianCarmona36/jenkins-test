@@ -20,4 +20,5 @@ docker exec -u root integracioncontinua-jenkins-1 usermod -aG docker jenkins
 
 # Reiniciar el contenedor Jenkins para aplicar los cambios
 docker restart integracioncontinua-jenkins-1
+
 # 194cc34bd6ae4219a7be5256a7c4ba37
